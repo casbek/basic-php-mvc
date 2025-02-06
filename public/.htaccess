@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /public/
+
+# Var olan dosya veya klasörlere erişime izin ver
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Geri kalan tüm istekleri index.php'ye yönlendir
+RewriteRule ^(.*)$ index.php?url=$1 [L]
